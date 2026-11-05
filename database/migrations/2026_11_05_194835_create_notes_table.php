@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable()->unique();
+            $table->longText('body');
+            $table->boolean('is_published')->default(true);
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
+
+            $table->index(['is_published', 'published_at']);
         });
     }
 

@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug')->nullable()->unique();
+            $table->text('excerpt')->nullable();
+            $table->longText('body');
+            $table->boolean('is_published')->default(true);
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
+
+            $table->index(['is_published', 'published_at']);
         });
     }
 
