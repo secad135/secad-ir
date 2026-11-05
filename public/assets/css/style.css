@@ -1,0 +1,740 @@
+/* ============================================
+   secad.ir - استایل برند شخصی
+   ============================================ */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+/* ---------- متغیرهای رنگ ---------- */
+:root {
+    --primary-color: #2563eb;
+    --text-color: #1f2937;
+    --bg-color: #f3f4f6;
+    --nav-bg: #ffffff;
+    --card-bg: #ffffff;
+    --card-bg-rgb: 255, 255, 255;
+    --border-color: #e5e7eb;
+    --muted-color: #6b7280;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --text-color: #f3f4f6;
+    --bg-color: #111827;
+    --nav-bg: #1f2937;
+    --card-bg: #1f2937;
+    --card-bg-rgb: 31, 41, 55;
+    --border-color: #374151;
+    --muted-color: #9ca3af;
+}
+
+/* ---------- ریست ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    direction: rtl;
+    line-height: 1.7;
+    overflow-x: clip;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    opacity: 0.85;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   نوار بالا (Navbar)
+   ============================================ */
+.navbar {
+    background-color: var(--nav-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+    transition: background-color var(--transition-speed);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
+.navbar-brand img {
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+    order: 1;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    order: 2;
+}
+
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all var(--transition-speed);
+}
+
+.theme-toggle-btn:hover {
+    background: var(--border-color);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* ============================================
+   محتوای صفحه (عمومی)
+   ============================================ */
+.content-area {
+    padding: 30px 20px;
+    background-color: var(--bg-color);
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.content-area h1,
+.content-area h2,
+.content-area h3,
+.content-area h4 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+.content-area h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.content-area h2 { font-size: 1.6rem; }
+.content-area h3 { font-size: 1.3rem; }
+.content-area h4 { font-size: 1.1rem; }
+
+.content-area p {
+    margin-bottom: 15px;
+}
+
+.content-area ul,
+.content-area ol {
+    padding-right: 25px;
+    margin: 15px 0;
+}
+
+.content-area li {
+    margin-bottom: 8px;
+}
+
+.content-area a {
+    color: var(--primary-color);
+    border-bottom: 1px dashed var(--primary-color);
+}
+
+.content-area a:hover {
+    border-bottom-style: solid;
+    opacity: 1;
+}
+
+.content-area blockquote {
+    border-right: 4px solid var(--primary-color);
+    background-color: var(--card-bg);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.content-area img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+/* ---------- جدول ---------- */
+.content-area table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--card-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+.content-area table th,
+.content-area table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: right;
+}
+
+.content-area table th {
+    background-color: var(--bg-color);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.content-area table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .content-area table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.content-area table tr:hover {
+    background-color: rgba(37, 99, 235, 0.08) !important;
+}
+
+/* ---------- کد درون‌خطی ---------- */
+.content-area code:not(pre code) {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: #e11d48;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    direction: ltr;
+    display: inline-block;
+}
+
+[data-theme="dark"] .content-area code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.15);
+    color: #fda4af;
+}
+
+/* ---------- بلوک کد ---------- */
+.content-area pre {
+    position: relative;
+    direction: ltr !important;
+    text-align: left !important;
+    background-color: #1e1e1e !important;
+    color: #d4d4d4 !important;
+    padding: 20px !important;
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border: 1px solid #333;
+}
+
+.content-area pre code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    font-family: inherit;
+}
+
+.copy-code-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #a3a3a3;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: 'Vazirmatn', sans-serif;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.copy-code-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.copy-code-btn.copied {
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
+}
+
+/* ============================================
+   کارت‌های فهرست (نمونه‌کار/بلاگ/یادداشت)
+   ============================================ */
+.list-card {
+    background: var(--card-bg);
+    padding: 20px 22px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+    transition: transform var(--transition-speed), border-color var(--transition-speed);
+}
+
+.list-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.list-card h2,
+.list-card h3 {
+    margin-top: 0 !important;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
+.list-card h2 a,
+.list-card h3 a {
+    color: var(--text-color);
+    border-bottom: none;
+}
+
+.list-card h2 a:hover,
+.list-card h3 a:hover {
+    color: var(--primary-color);
+}
+
+.list-card .excerpt {
+    color: var(--muted-color);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.tech-tag {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.82rem;
+    color: var(--muted-color);
+}
+
+.meta-info {
+    font-size: 0.85rem;
+    color: var(--muted-color);
+    margin-bottom: 8px;
+}
+
+/* ---------- جعبه اصلی مقاله/پروژه ---------- */
+.detail-box {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   صفحه اصلی (Landing / Hero)
+   ============================================ */
+.landing-container {
+    min-height: calc(100vh - 60px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    user-select: none;
+}
+
+.landing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-section {
+    text-align: right;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.hero-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    border: 3px solid var(--card-bg);
+    object-fit: cover;
+}
+
+.hero-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: linear-gradient(45deg, var(--primary-color), #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    opacity: 0.85;
+    font-weight: 500;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Vazirmatn', sans-serif;
+    cursor: pointer;
+    border: none;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    opacity: 1;
+}
+
+.secondary-btn {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+.features-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(var(--card-bg-rgb), 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateX(-8px);
+    border-color: var(--primary-color);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.feature-card p {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin: 0;
+}
+
+.landing-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    padding-top: 30px;
+    width: 100%;
+}
+
+/* ---------- پس‌زمینه انیمیشن کد ---------- */
+#code-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.code-symbol {
+    position: absolute;
+    color: var(--primary-color);
+    opacity: 0.05;
+    font-family: monospace;
+    font-weight: bold;
+    animation: floatUp linear infinite;
+    user-select: none;
+}
+
+[data-theme="dark"] .code-symbol {
+    opacity: 0.08;
+    color: #60a5fa;
+}
+
+@keyframes floatUp {
+    0%   { transform: translateY(100vh) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* ============================================
+   صفحه‌بندی (Pagination)
+   ============================================ */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 30px 0 10px;
+    flex-wrap: wrap;
+}
+
+.pagination-wrapper a,
+.pagination-wrapper span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all var(--transition-speed);
+}
+
+.pagination-wrapper a:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.pagination-wrapper .active span,
+.pagination-wrapper span[aria-current="page"] {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.pagination-wrapper .disabled span {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   فوتر
+   ============================================ */
+.site-footer {
+    text-align: center;
+    padding: 22px 20px;
+    background: var(--nav-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--muted-color);
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   ریسپانسیو
+   ============================================ */
+@media (max-width: 900px) {
+    .landing-container {
+        min-height: auto;
+        padding: 40px 20px;
+        overflow: visible;
+    }
+
+    .landing-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-section { text-align: center; }
+    .hero-buttons { justify-content: center; }
+    .hero-title { font-size: 2rem; }
+    .feature-card:hover { transform: translateY(-5px); }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+        background-color: var(--nav-bg);
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        gap: 0;
+    }
+
+    .nav-links.active li {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .nav-links.active a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .content-area {
+        padding: 20px 12px;
+    }
+
+    .content-area h1 { font-size: 1.5rem; }
+    .content-area h2 { font-size: 1.25rem; }
+    .content-area h3 { font-size: 1.1rem; }
+
+    .content-area table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .content-area pre {
+        font-size: 0.8rem;
+        padding: 14px !important;
+    }
+
+    .hero-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .detail-box { padding: 20px 16px; }
+    .list-card { padding: 16px; }
+}
