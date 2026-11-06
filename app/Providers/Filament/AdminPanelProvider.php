@@ -51,6 +51,11 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            // ->defaultLocale('fa')
+            ->brandName('پنل مدیریت')
+            ->brandLogo(asset('images/logo.png'))
+            ->brandLogoHeight('2.5rem')
+            ->favicon(asset('images/logo.png'))
             ->authMiddleware([
                 Authenticate::class,
             ]);
