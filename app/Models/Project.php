@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasSlug;
 
 class Project extends Model
 {
-    use HasFactory;
-
+    use HasFactory, HasSlug;
     protected $fillable = [
         'title', 'slug', 'excerpt', 'body', 'client', 'url',
         'tech_stack', 'featured', 'sort_order', 'is_published', 'published_at',

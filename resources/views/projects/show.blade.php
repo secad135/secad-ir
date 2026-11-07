@@ -16,7 +16,9 @@
 
         @if($project->client)<p><strong>کارفرما:</strong> {{ $project->client }}</p>@endif
         @if($project->url)<p><strong>لینک:</strong> <a href="{{ $project->url }}" target="_blank" rel="noopener">{{ $project->url }}</a></p>@endif
-        @if($project->body)<div style="margin-top:20px;">{!! nl2br(e($project->body)) !!}</div>@endif
+        @if($project->body)
+        <div style="margin-top:20px;"><div class="rich-body">{!! $project->body !!}</div></div>
+        @endif
 
         <p style="margin-top:30px;"><a href="{{ route('projects.index') }}">→ بازگشت به نمونه‌کارها</a></p>
     </article>

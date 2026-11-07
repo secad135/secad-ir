@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasSlug;
 
 class Note extends Model
 {
-    use HasFactory;
-
+    use HasFactory, HasSlug;
+    
     protected $fillable = [
         'title', 'slug', 'body', 'is_published', 'published_at',
     ];
