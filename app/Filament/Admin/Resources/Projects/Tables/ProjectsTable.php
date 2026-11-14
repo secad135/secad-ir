@@ -7,6 +7,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
@@ -17,6 +18,13 @@ class ProjectsTable
     {
         return $table
             ->columns([
+                ImageColumn::make('featured_image')
+                    ->label('عکس')
+                    ->height(40)
+                    ->width(60)
+                    ->getStateUsing(fn ($record) => $record->featured_image_url)
+                    ->circular(false),
+
                 TextColumn::make('title')
                     ->label('عنوان')
                     ->searchable()
