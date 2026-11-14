@@ -7,16 +7,17 @@
         <h1>یادداشت‌ها</h1>
 
         @forelse($notes as $note)
-            <article style="background:var(--card-bg); padding:20px; border-radius:10px; border:1px solid var(--border-color); margin-bottom:15px;">
-                <h2 style="margin-top:0;">
-                    <a href="{{ route('notes.show', $note) }}">
-                        {{ $note->title ?? 'یادداشت ' . $note->id }}
-                    </a>
-                </h2>
-                <p style="margin-bottom:0;">{{ \Illuminate\Support\Str::limit(strip_tags($note->body), 150) }}</p>
-            </article>
+        <article style="background:var(--card-bg); padding:20px; border-radius:10px; border:1px solid var(--border-color); margin-bottom:15px;">
+            <img src="{{ $note->featured_image_url }}" alt="{{ $note->title ?? 'یادداشت' }}" class="card-image">
+            <h2 style="margin-top:0;">
+                <a href="{{ route('notes.show', $note) }}">
+                    {{ $note->title ?? 'یادداشت ' . $note->id }}
+                </a>
+            </h2>
+            <p style="margin-bottom:0;">{{ \Illuminate\Support\Str::limit(strip_tags($note->body), 150) }}</p>
+        </article>
         @empty
-            <p>هنوز یادداشتی ثبت نشده است.</p>
+        <p>هنوز یادداشتی ثبت نشده است.</p>
         @endforelse
 
         {{ $notes->links() }}

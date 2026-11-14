@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasSlug;
-
+use App\Models\Concerns\HasFeaturedImage;
 class Project extends Model
 {
-    use HasFactory, HasSlug;
+   use HasFactory, HasSlug, HasFeaturedImage;
+
+    public const DEFAULT_IMAGE = 'default-project.webp';
     protected $fillable = [
         'title', 'slug', 'excerpt', 'body', 'client', 'url',
-        'tech_stack', 'featured', 'sort_order', 'is_published', 'published_at',
+        'tech_stack', 'featured', 'sort_order', 'is_published', 'published_at','title', 'slug', 'featured_image',
     ];
 
     protected $casts = [
@@ -35,4 +37,5 @@ class Project extends Model
     {
         return $query->where('featured', true);
     }
+    
 }

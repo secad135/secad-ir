@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasSlug;
-
+use App\Models\Concerns\HasFeaturedImage;
 class Note extends Model
 {
-    use HasFactory, HasSlug;
+    use HasFactory, HasSlug, HasFeaturedImage;
+
+    public const DEFAULT_IMAGE = 'default-note.webp';
     
     protected $fillable = [
-        'title', 'slug', 'body', 'is_published', 'published_at',
+        'title', 'slug', 'body', 'is_published', 'published_at','title', 'slug', 'featured_image',
     ];
 
     protected $casts = [

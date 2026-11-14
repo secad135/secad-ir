@@ -439,6 +439,33 @@ img {
     color: var(--muted-color);
     margin-bottom: 8px;
 }
+/* ---------- عکس شاخص ---------- */
+.card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background: var(--bg-color);
+    display: block;
+}
+
+.detail-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    background: var(--bg-color);
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .card-image,
+    .detail-image {
+        border-radius: 6px;
+    }
+}
 
 /* ---------- جعبه اصلی مقاله/پروژه ---------- */
 .detail-box {

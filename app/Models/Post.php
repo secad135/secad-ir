@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasSlug;
-
+use App\Models\Concerns\HasFeaturedImage;
 class Post extends Model
 {
-    use HasFactory, HasSlug;
+    use HasFactory, HasSlug, HasFeaturedImage;
+
+    public const DEFAULT_IMAGE = 'default-post.webp';
     
     protected $fillable = [
-        'title', 'slug', 'excerpt', 'body', 'is_published', 'published_at',
+        'title', 'slug', 'excerpt', 'body', 'is_published', 'published_at','title', 'slug', 'featured_image',
     ];
 
     protected $casts = [
