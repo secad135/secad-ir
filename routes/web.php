@@ -12,7 +12,9 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects.ind
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
+Route::get('/notes/category/{category:slug}', [NoteController::class, 'byCategory'])->name('notes.category');
 Route::get('/notes/{note}', [NoteController::class, 'show'])->name('notes.show');
 
 Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
+Route::get('/blog/category/{category:slug}', [PostController::class, 'byCategory'])->name('blog.category');
 Route::get('/blog/{post}', [PostController::class, 'show'])->name('blog.show');

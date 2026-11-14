@@ -2,19 +2,21 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasFeaturedImage;
+use App\Models\Concerns\HasSlug;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Concerns\HasSlug;
-use App\Models\Concerns\HasFeaturedImage;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 class Post extends Model
 {
-    use HasFactory, HasSlug, HasFeaturedImage;
+    use HasFactory, HasFeaturedImage, HasSlug;
 
     public const DEFAULT_IMAGE = 'default-post.webp';
-    
+
     protected $fillable = [
-        'title', 'slug', 'excerpt', 'body', 'is_published', 'published_at','title', 'slug', 'featured_image',
+        'title', 'slug', 'excerpt', 'body', 'is_published', 'published_at', 'title', 'slug', 'featured_image',
     ];
 
     protected $casts = [
@@ -27,7 +29,12 @@ class Post extends Model
         return $query->where('is_published', true)
             ->where(function (Builder $q) {
                 $q->whereNull('published_at')
-                  ->orWhere('published_at', '<=', now());
+                    ->orWhere('published_at', '<=', now());
             });
+    }
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources\Notes\Schemas;
 
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
@@ -61,6 +62,13 @@ class NoteForm
                     ->default(fn ($record) => $record?->featured_image && str_starts_with($record->featured_image, 'http')
                         ? $record->featured_image
                         : null)
+                    ->columnSpanFull(),
+
+                CheckboxList::make('noteCategories')
+                    ->label('دسته‌ها')
+                    ->relationship('noteCategories', 'title')
+                    ->searchable()
+                    ->columns(2)
                     ->columnSpanFull(),
 
                 RichEditor::make('body')

@@ -6,6 +6,12 @@
     <div style="max-width:900px; margin:0 auto;">
         <h1>یادداشت‌ها</h1>
 
+        @include('partials.category-tree', [
+            'items' => $categories,
+            'routeName' => 'notes.category',
+            'currentSlug' => null,
+        ])
+
         @forelse($notes as $note)
         <article style="background:var(--card-bg); padding:20px; border-radius:10px; border:1px solid var(--border-color); margin-bottom:15px;">
             <img src="{{ $note->featured_image_url }}" alt="{{ $note->title ?? 'یادداشت' }}" class="card-image">

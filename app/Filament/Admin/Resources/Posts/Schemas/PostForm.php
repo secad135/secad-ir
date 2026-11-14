@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources\Posts\Schemas;
 
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
@@ -69,6 +70,13 @@ class PostForm
                     ->rows(2)
                     ->maxLength(500)
                     ->helperText('برای نمایش در کارت فهرست بلاگ')
+                    ->columnSpanFull(),
+
+                CheckboxList::make('categories')
+                    ->label('دسته‌ها')
+                    ->relationship('categories', 'title')
+                    ->searchable()
+                    ->columns(2)
                     ->columnSpanFull(),
 
                 RichEditor::make('body')

@@ -6,6 +6,12 @@
     <div style="max-width:900px; margin:0 auto;">
         <h1>بلاگ</h1>
 
+        @include('partials.category-tree', [
+            'items' => $categories,
+            'routeName' => 'blog.category',
+            'currentSlug' => null,
+        ])
+
         @forelse($posts as $post)
         <article style="background:var(--card-bg); padding:20px; border-radius:10px; border:1px solid var(--border-color); margin-bottom:15px;">
             <img src="{{ $post->featured_image_url }}" alt="{{ $post->title }}" class="card-image">

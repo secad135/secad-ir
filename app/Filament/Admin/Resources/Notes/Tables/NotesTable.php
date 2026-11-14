@@ -27,7 +27,7 @@ class NotesTable
 
                 TextColumn::make('title')
                     ->label('عنوان')
-                    ->formatStateUsing(fn ($record) => $record->title ?? 'یادداشت #' . $record->id)
+                    ->formatStateUsing(fn ($record) => $record->title ?? 'یادداشت #'.$record->id)
                     ->searchable()
                     ->sortable(),
 
@@ -35,6 +35,11 @@ class NotesTable
                     ->label('متن')
                     ->limit(60)
                     ->formatStateUsing(fn ($state) => strip_tags($state)),
+
+                TextColumn::make('noteCategories.title')
+                    ->label('دسته‌ها')
+                    ->badge()
+                    ->separator(','),
 
                 IconColumn::make('is_published')
                     ->label('منتشر شده')

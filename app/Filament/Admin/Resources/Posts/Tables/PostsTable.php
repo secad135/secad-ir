@@ -35,6 +35,11 @@ class PostsTable
                     ->limit(50)
                     ->toggleable(),
 
+                TextColumn::make('categories.title')
+                    ->label('دسته‌ها')
+                    ->badge()
+                    ->separator(','),
+
                 IconColumn::make('is_published')
                     ->label('منتشر شده')
                     ->boolean(),
